@@ -1,10 +1,10 @@
-package edu.neiu.hw05;
+package edu.neiu.hw06;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Hw05ApplicationTests {
+class Hw06ApplicationTests {
 
     @Test
     void contextLoads() {

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>edu.neiu</groupId>
-    <artifactId>hw05</artifactId>
+    <artifactId>hw06</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hw05</name>
-    <description>hw05</description>
+    <name>hw06</name>
+    <description>hw06</description>
     <properties>
         <java.version>11</java.version>
     </properties>

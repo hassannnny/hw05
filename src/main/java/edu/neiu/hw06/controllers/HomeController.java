@@ -1,4 +1,4 @@
-package edu.neiu.hw05.controllers;
+package edu.neiu.hw06.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +10,8 @@ public class HomeController {
 
     @GetMapping
     public String getHomePage() {
-        String s = "StudySmart";
-        return s;
+        String study = "StudySmart";
+        return study;
     }
 }
 
