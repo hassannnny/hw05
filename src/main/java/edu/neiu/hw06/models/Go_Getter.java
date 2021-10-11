@@ -2,19 +2,19 @@ package edu.neiu.hw06.models;
 
 public class Go_Getter {
 
-    private String firstName;
-    private String lastName;
-    private String schoolEmail;
+    private static String firstName;
+    private static String lastName;
+    private static String schoolEmail;
 
-    public String getFirstName() {
+    public static String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
+    public static String getLastName() {
         return lastName;
     }
 
-    public String getSchoolEmail() {
+    public static String getSchoolEmail() {
         return schoolEmail;
     }
 
