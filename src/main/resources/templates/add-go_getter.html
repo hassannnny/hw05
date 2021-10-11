@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="ttps://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StudySmart</title>
+
+    <h1>Study Smart</h1>
+    <h2>Go Get It!</h2>
+</head>
+<body>
+
+    <form th:action="@{/go_getter}" th:oject="${go_getter}" method ="post">
+        <input id ="firstName" type="text" th:field = *{firstName)" placeholder="First Name">
+        <br>
+        <input id = "lastName" type="text" th:field = *{lastName)" placeholder="Last Name">
+        <br>
+        <input id = "schoolEmail" type="text" th:field = *{schoolEmail)" placeholder="School Email">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
