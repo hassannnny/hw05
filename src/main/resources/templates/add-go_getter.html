@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="https://www.thymleaf.org">
+        xmlns:th="https://www.thymleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/css/base.css}">
     <title>StudySmart</title>
 
     <h1>Study Smart</h1>
     <h2>Go Get It!</h2>
 </head>
 <body>
+    <div th:replace="fragments/base :: navigation"></div>
+    <div th:replace="fragments/base :: header"></div>
+    <div th:replace="fragments/base :: footer"></div>
 
     <form th:action="@{/go_getter}" th:oject="${go_getter}" method ="post">
         <input id ="firstName" type="text" th:field = *{firstName)" placeholder="First Name">
