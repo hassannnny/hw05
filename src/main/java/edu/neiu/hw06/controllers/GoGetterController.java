@@ -1,6 +1,6 @@
 package edu.neiu.hw06.controllers;
 
-import edu.neiu.hw06.models.Go_Getter;
+import edu.neiu.hw06.models.GoGetter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/go_getter")
-public class Go_GetterController {
+@RequestMapping("/gogetter")
+public class GoGetterController {
 
     @GetMapping
     public String getIndexPage(Model model) {
-        model.addAttribute("go_getter", new Go_Getter());
-        return "index-page";
+        model.addAttribute("gogetter", new GoGetter());
+        return "gogetter";
     }
     @PostMapping
-    public String handleGo_GetterForm(@ModelAttribute("go_getter") Go_Getter go_getter) {
+    public String handleGoGetterForm(@ModelAttribute("gogetter") GoGetter gogetter) {
         System.out.print("Hello");
-        System.out.print("First Name " + Go_Getter.getFirstName());
-        System.out.print("First Name " + Go_Getter.getLastName());
-        return ("redirect:/index-page");
+        System.out.print("First Name  " + gogetter.getFirstName());
+        System.out.print("Last Name " + gogetter.getLastName());
+        return ("redirect:/add-gogetter");
     }
 
 }

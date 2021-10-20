@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns:th="https://www.thymleaf.org">
+<head>
+    <th:block th:replace="fragments/base :: headAttribute"></th:block>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/css/base.css}">
+    <title>StudySmart</title>
+
+    <h1>Study Smart</h1>
+    <h2>Go Get It!</h2>
+</head>
+<body>
+    <div th:replace="fragments/base :: navigation"></div>
+    <div th:replace="fragments/base :: header"></div>
+    <div th:replace="fragments/base :: footer"></div>
+
+
+
+    <form class="mt-5" th:action="@{/gogetter}" th:oject="${gogetter}" method ="post">
+        <div class="container-fluid">
+            <div class="justify-content-center">
+                <div class="col-8 col-md-6">
+                    <input class="form-control" id="firstName1" type="text"
+                        th:field="*(firstName)" placeholder="First Name">
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <div class="col-10 col-md-3">
+                    <input class="form-control" id="lastName1" type="text"
+                           th:field="*(lastName)" placeholder="Last Name">
+                </div>
+                <div class="justify-content-center">
+                    <div class="col-8 col-md-3">
+                        <input class="form-control" id="schoolEmail1" type="text"
+                               th:field="*(schoolEmail)" placeholder="School Email">
+                    </div>
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+        </div>
+        <!--<input id ="firstName" type="text" th:field = *{firstName)" placeholder="First Name">
+        <br>
+        <input id = "lastName" type="text" th:field = *{lastName)" placeholder="Last Name">
+        <br>
+        <input id = "schoolEmail" type="text" th:field = *{schoolEmail)" placeholder="School Email">
+        <br>
+        <input type="submit" value="Submit">-->
+    </form>
+</body>
+    <th:block th:replace="fragment/base :: scripts"></th:block>
+</html>
