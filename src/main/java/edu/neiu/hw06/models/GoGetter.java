@@ -6,6 +6,18 @@ public class GoGetter {
     private String lastName;
     private String schoolEmail;
 
+    public GoGetter() {
+        this.firstName = "";
+        this.lastName = "";
+        this.schoolEmail = "";
+    }
+
+    public GoGetter(String firstName, String lastName, String schoolEmail) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.schoolEmail = schoolEmail;
+    }
+
     public String getFirstName() {
         return firstName;
     }

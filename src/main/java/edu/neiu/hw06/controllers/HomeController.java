@@ -10,8 +10,7 @@ public class HomeController {
 
     @GetMapping
     public String getHomePage() {
-        String study = "StudySmart";
-        return study;
+       return "index-page";
     }
 }
 

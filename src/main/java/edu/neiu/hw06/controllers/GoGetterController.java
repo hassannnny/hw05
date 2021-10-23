@@ -15,14 +15,15 @@ public class GoGetterController {
     @GetMapping
     public String getIndexPage(Model model) {
         model.addAttribute("gogetter", new GoGetter());
-        return "gogetter";
+        return "add-gogetter";
     }
+
     @PostMapping
     public String handleGoGetterForm(@ModelAttribute("gogetter") GoGetter gogetter) {
-        System.out.print("Hello");
-        System.out.print("First Name  " + gogetter.getFirstName());
-        System.out.print("Last Name " + gogetter.getLastName());
-        return ("redirect:/add-gogetter");
+        System.out.println("Hello");
+        System.out.println("First Name  " + gogetter.getFirstName());
+        System.out.println("Last Name " + gogetter.getLastName());
+        return "redirect:/";
     }
 
 }
