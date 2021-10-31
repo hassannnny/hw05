@@ -1,6 +1,8 @@
 package edu.neiu.hw06.controllers;
 
+import edu.neiu.hw06.data.GoGetterRepository;
 import edu.neiu.hw06.models.GoGetter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/gogetter")
 public class GoGetterController {
 
+    public GoGetterRepository GoGetterRepo;
+
+    @Autowired
+    public GoGetterController(GoGetterRepository GoGetterRepo) {
+        this.GoGetterRepo = GoGetterRepo;
+    }
+
     @GetMapping
     public String getIndexPage(Model model) {
         model.addAttribute("gogetter", new GoGetter());
@@ -20,9 +29,7 @@ public class GoGetterController {
 
     @PostMapping
     public String handleGoGetterForm(@ModelAttribute("gogetter") GoGetter gogetter) {
-        System.out.println("Hello");
-        System.out.println("First Name  " + gogetter.getFirstName());
-        System.out.println("Last Name " + gogetter.getLastName());
+       this.GoGetterRepo.save(gogetter);
         return "redirect:/";
     }
 
