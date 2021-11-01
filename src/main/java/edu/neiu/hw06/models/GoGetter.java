@@ -3,6 +3,9 @@ package edu.neiu.hw06.models;
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,15 +14,17 @@ public class GoGetter {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    @NotBlank(message = "First name should be more than 2 characters")
     private String firstName;
+    @NotBlank(message = "Last name should be more than 2 characters")
     private String lastName;
+    @Email(message = "Must be a valid email address")
     private String schoolEmail;
     private LocalDateTime created;
     private LocalDateTime modified;
 
+
     public GoGetter() {
-
-
         this.firstName = "";
         this.lastName = "";
         this.schoolEmail = "";
@@ -30,7 +35,6 @@ public class GoGetter {
         this.lastName = lastName;
         this.schoolEmail = schoolEmail;
     }
-
     public String getFirstName() {
         return firstName;
     }

@@ -24,10 +24,10 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" href="@{/}">Home</a>
+                    <a class="nav-link" th:href="@{/gogetter}">Home</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" href="@{/}">Dashboard</a>
+                    <a class="nav-link" th:href="@{/view}">View GoGetter</a>
                 </li>
             </ul>
         </div>
