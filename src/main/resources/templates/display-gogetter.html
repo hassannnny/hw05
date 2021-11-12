@@ -7,9 +7,25 @@
 </head>
 <body>
     <div th:replace="fragments/base :: navigation"></div>
-    <div th:replace="fragments/base :: header"></div>
 
-    <h1 class="align-content-center">Hello</h1>
+    <header class="Welcome">
+        <div class="container text-center">Welcome</div>
+    </header>
+
+    <div class="modal" id="CancelModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I'm sure</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Return</button>
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid mt-5">
         <div th:each="gogetter: ${gogetter}">
@@ -17,7 +33,9 @@
                 <div class="col-2 col-md-4"></div>
                 <div class="col-8 md-4 card">
                     <div class="card-body">
-                        <h2 class="card-title" th:text="${gogetter}"></h2>
+                        <h1 class="card-title d-incline" th:text="${gogetter.firstName + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1><br>
+                        <a th:href="@{/gogetter/view/{id}(id=${gogetter.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
+                        <a th:href="@{/gogetter/delete/{id}(id=${gogetter.id})}" data-toggle="modal" data-target="#CancelModal" class="ml-3"><i class="fas fa-trash-alt" th:href="@{/view}"></i></a>
                     </div>
                 </div>
             </div>

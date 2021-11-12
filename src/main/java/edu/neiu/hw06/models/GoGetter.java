@@ -18,8 +18,13 @@ public class GoGetter {
     private String firstName;
     @NotBlank(message = "Last name should be more than 2 characters")
     private String lastName;
+
+    @NotBlank(message = "Please enter an email address")
     @Email(message = "Must be a valid email address")
+    @Column(unique = true)
     private String schoolEmail;
+
+
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -73,6 +78,10 @@ public class GoGetter {
 
     public void setModified(LocalDateTime modified) {
         this.modified = modified;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @PrePersist

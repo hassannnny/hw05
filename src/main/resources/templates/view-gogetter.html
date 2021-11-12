@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en"
-        xmlns:th="https://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <th:block th:insert="fragments/base :: headAttributes"></th:block>
-    <link th:rel="stylesheet" th:href="@{/css/base.css}">
+    <title>View GoGetter</title>
 </head>
 <body>
     <div th:replace="fragments/base :: navigation"></div>
-    <div th:replace="fragments/base :: header"></div>
 
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-14">View/Edit</h3>
+        </div>
+    </div>
 
-    <form class="mt-5" th:action="@{/gogetter}" th:object="${gogetter}" method ="post">
+    <form class="mt-5" th:action="@{/gogetter/edit/{id}(id=${gogetter.id})}" th:object="${gogetter}" method ="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
                 <div class="col-10 col-md-3">
                     <input class="form-control" id="firstName" type="text"
-                        th:field="*{firstName}" placeholder="First Name">
+                           th:field="*{firstName}" placeholder="First Name">
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
@@ -51,9 +56,8 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-10 col-md-2">
-                            <input class="btn btn-dark" type="submit" value="Submit">
-                            <a class="btn-dark" th:href="@{/view}"></a>
-
+                            <input class="btn btn-dark" type="submit" value="Submit" />
+                            <a class="btn btn-dark" th:href="@{/view}">Cancel</a>
                         </div>
                     </div>
                 </div>
@@ -61,4 +65,6 @@
         </div>
     </form>
 </body>
+    <div th:replace="fragments/base :: footer"></div>
+    <th:block th:replace="fragments/base :: scripts"></th:block>
 </html>
