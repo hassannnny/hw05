@@ -33,7 +33,7 @@
                 <div class="col-2 col-md-4"></div>
                 <div class="col-8 md-4 card">
                     <div class="card-body">
-                        <h1 class="card-title d-incline" th:text="${gogetter} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1><br>
+                        <h1 class="card-title d-incline" th:text="${gogetter.firstName} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1><br>
                         <a th:href="@{/gogetter/view/{id}(id=${gogetter.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
                         <a th:href="@{/gogetter/delete/{id}(id=${gogetter.id})}" data-toggle="modal" data-target="#CancelModal" class="ml-3"><i class="fas fa-trash-alt" th:href="@{/view}"></i></a>
                     </div>
