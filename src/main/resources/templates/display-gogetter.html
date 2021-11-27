@@ -24,22 +24,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I'm sure</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" dismiss="modal">Return</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid mt-5">
-        <div th:each="gogetter: ${gogetter}">
-            <div class="row justify-content-center">
-                <div class="col-2 col-md-4"></div>
-                <div class="col-8 md-4 card">
-                    <div class="card-body">
-                        <h1 class="card-title d-incline" th:text="${gogetter.firstName} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1><br>
-                        <a th:href="@{/gogetter/view/{id}(id=${gogetter.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
-                        <a th:href="@{/gogetter/delete/{id}(id=${gogetter.id})}" data-toggle="modal" data-target="#CancelModal" class="ml-3"><i class="fas fa-trash-alt" th:href="@{/view}"></i></a>
-                    </div>
-                </div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Return</button>
             </div>
         </div>
     </div>

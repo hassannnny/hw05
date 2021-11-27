@@ -31,9 +31,9 @@ public class GoGetterController {
 
     @GetMapping("/view/{id}")
     public String showGoGetter(@PathVariable Long id, Model model) {
-        GoGetter goGetter = this.GoGetterRepo.findById(id).get();
-        model.addAttribute("gogetter", goGetter);
-        return "view-gogetter";
+        GoGetter gogetter = this.GoGetterRepo.findById(id).get();
+        model.addAttribute("gogetter", gogetter);
+        return "display-gogetter";
     }
 
     @GetMapping("/delete/{id}")

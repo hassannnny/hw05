@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/}">Home</a>
+                    <a class="nav-link" th:href="@{/home}">Home</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/gogetter}">Add GoGetter</a>
@@ -32,6 +32,7 @@
                     <a class="nav-link" th:href="@{/view}">View GoGetter</a>
                 </li>
             </ul>
+            <a th:href="@{/logout}" class="btn btn-dark">Logout</a>
         </div>
     </nav>
 
