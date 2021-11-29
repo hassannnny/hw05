@@ -27,12 +27,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .and()
                 .authorizeRequests()
-                /*.antMatchers("/view/**").authenticated()*/
+                .antMatchers("/view/**").authenticated()
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/view").permitAll()
+                .authorizeRequests()
+                .and()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/view/", true).permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/login?logout").permitAll();
     }
 
     @Override
@@ -40,7 +42,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password(passwordEncoder().encode("password"))
-                .roles("USER");
+                .roles("USER")
+        .and()
+                .withUser("admin")
+                .password(passwordEncoder().encode("password"))
+                .roles("ADMIN");
     }
 }
 

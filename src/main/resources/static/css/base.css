@@ -6,6 +6,7 @@
 .Welcome {
     text-align: center;
     font-size: xxx-large;
+    margin-top: 150px;
 }
 .footer {
     position: fixed;
