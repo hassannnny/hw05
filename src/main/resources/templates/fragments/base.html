@@ -26,17 +26,21 @@
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    sec:authorize="isAuthenticated()"
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/gogetter}">Add GoGetter</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    sec:authorize="hasRole('ADMIN')">
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/view}">View GoGetter</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    sec:authorize="hasRole('ADMIN')">
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/task}">Add a Task</a>
+                </li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/viewtask}">View Task</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/registration}">Sign In</a>

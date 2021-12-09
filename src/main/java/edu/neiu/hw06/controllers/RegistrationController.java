@@ -40,7 +40,7 @@ public class RegistrationController {
     @PostMapping
     public String handleRegistrationForm(@Valid @ModelAttribute("registration") Registration registration, Errors errors) {
         if (errors.hasErrors()) {
-            return "redirect:/view";
+            return "registration";
         }
         try {
             this.RegisterRepo.save(registration);

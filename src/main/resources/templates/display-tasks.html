@@ -20,9 +20,9 @@
                 <div class="col-8 md-4 card">
                     <div class="card-body">
                         <p class="card-title d-incline" th:text="${task.subject}"></p>
-                        <p class="class-title d-incline" th:text="${task.task}"><p/>
+                        <p class="class-title d-incline" th:text="${task.singleTask}"><p/>
                         <a th:href="@{/task/view/{id}(id=${task.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
-                        <a th:href="@{/task/delete/{id}(id=${task.id})}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#CancelModal"><i class="fas fa-trash-alt"></i></a>                <!--type="button" data-toggle="modal" data-target="#CancelModal" class="ml-3"-->
+                        <a th:href="@{/task/delete/{id}(id=${task.id})}" class="ml-3"><i class="fas fa-trash-alt"></i></a>                <!--type="button" data-toggle="modal" data-target="#CancelModal" class="ml-3"-->
                     </div>
                 </div>
             </div>

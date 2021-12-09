@@ -9,10 +9,7 @@ import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,23 +18,35 @@ import javax.validation.Valid;
 @RequestMapping("/task")
 public class TasksController {
 
-    public TasksRepository TaskRepo;
+    public TasksRepository TasksRepo;
 
     @Autowired
-    public TasksController(TasksRepository TaskRepo) {
-        this.TaskRepo = TaskRepo;
+    public TasksController(TasksRepository TasksRepo) {
+        this.TasksRepo = TasksRepo;
     }
 
     @GetMapping
-    public String getTaskPage(Model model) {
+    public String getTasksPage(Model model) {
         model.addAttribute("task", new Tasks());
         return "add-task";
     }
 
     @PostMapping
-    public String handleTaskForm(@Valid @ModelAttribute("task") Tasks tasks, Errors errors) {
-        return "redirect:/view";
+    public String handleTasksForm(@Valid @ModelAttribute("task") Tasks tasks, Errors errors) {
+        return "redirect:/viewtask";
     }
 
+    @GetMapping("/view/{id}")
+    public String showGoGetter(@PathVariable Long id, Model model) {
+        Tasks task = this.TasksRepo.findById(id).get();
+        model.addAttribute("task", task);
+        return "viewtasks";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteGoGetter(@PathVariable Long id) {
+        this.TasksRepo.deleteById(id);
+        return "redirect:/viewtasks";
+    }
 }
 

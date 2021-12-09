@@ -26,21 +26,9 @@ import java.util.List;
 
     @GetMapping
     public String showTasksName(Model model) {
-        List<Tasks> tasks = (List<Tasks>) this.TasksRepo.findAll();
-        model.addAttribute("tasks", tasks);
+        List<Tasks> listOfTasks = (List<Tasks>) this.TasksRepo.findAll();
+        model.addAttribute("tasks", listOfTasks);
         return "display-tasks";
     }
 
-    @GetMapping("/view/{id}")
-    public String showGoGetter(@PathVariable Long id, Model model) {
-        Tasks task = this.TasksRepo.findById(id).get();
-        model.addAttribute("task", task);
-        return "viewtasks";
-    }
-
-    @GetMapping("/delete/{id}")
-    public String deleteGoGetter(@PathVariable Long id) {
-        this.TasksRepo.deleteById(id);
-        return "redirect:/viewtasks";
-    }
 }

@@ -21,15 +21,15 @@
     <form class="mt-5" th:action="@{/task}" th:object="${task}" method ="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
-                <div class="col-10 col-md-3">
+                <div class="col-10 col-md-3">Add a Task
                     <input class="form-control" id="subject" type="text"
                            th:field="*{subject}" placeholder="Add a Subject">
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
-                <div class="col-10 col-md-3">
+                <div class="col-10 col-md-3">Add a Subject
                     <input class="form-control" id="task" type="text"
-                           th:field="*{task}" placeholder="Add a Task">
+                           th:field="*{singleTask}" placeholder="Add a Task">
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="row justify-content-center">

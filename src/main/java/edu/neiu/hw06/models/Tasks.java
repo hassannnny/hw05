@@ -11,7 +11,7 @@ public class Tasks {
     private long id;
     @NotBlank()
     @Column(unique = true)
-    private String task;
+    private String singleTask;
 
 
     @NotBlank
@@ -19,21 +19,21 @@ public class Tasks {
 
 
     public Tasks() {
-        this.task = "";
-        this.subject = "";
+        this.singleTask = " ";
+        this.subject = " ";
     }
 
     public Tasks(String task, String subject) {
-        this.task = task;
+        this.singleTask = singleTask;
         this.subject = subject;
     }
 
-    public String getTask() {
-        return task;
+    public String getSingleTask() {
+        return singleTask;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setSingleTask(String singleTask) {
+        this.singleTask = singleTask;
     }
 
     public String getSubject() {
@@ -48,6 +48,6 @@ public class Tasks {
         return this.id;
     }
     public String toString() {
-        return this.task + " " + this.subject;
+        return this.singleTask + " " + this.subject;
     }
 }
