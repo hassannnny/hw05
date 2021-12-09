@@ -33,7 +33,7 @@ public class GoGetterController {
     public String showGoGetter(@PathVariable Long id, Model model) {
         GoGetter gogetter = this.GoGetterRepo.findById(id).get();
         model.addAttribute("gogetter", gogetter);
-        return "display-gogetter";
+        return "view-gogetter";
     }
 
     @GetMapping("/delete/{id}")
@@ -53,7 +53,7 @@ public class GoGetterController {
             errors.rejectValue("email", "InvalidEmail", "Email is already registered");
             return "add-gogetter";
         }
-        return "add-gogetter";
+        return "redirect:/view";
     }
 
     @PostMapping("edit/{id}")
@@ -69,7 +69,7 @@ public class GoGetterController {
             errors.rejectValue("email", "InvalidEmail", "Email is already registered");
             return "view-gogetter";
         }
-        return "redirect:/add-gogetter";
+        return "redirect:/view";
     }
 
     private void updateOriginalGoGetter(GoGetter original, GoGetter update) {

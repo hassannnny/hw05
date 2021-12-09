@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class User implements UserDetails {
 
     @Id
@@ -33,13 +34,43 @@ public class User implements UserDetails {
     private boolean accountNonLocked;
     private boolean credentialsNotExpired;
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @Column
-    @Enumerated
-    private Collection<Role> roles;
-    private enum Role {ROLE_ADMIN, ROLE_USER}
+    public String getSchoolEmail() {
+        return schoolEmail;
+    }
 
-    public User() {}
+    public void setSchoolEmail(String schoolEmail) {
+        this.schoolEmail = schoolEmail;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Collection<Role> roles;
+
+
+    public enum Role { ROLE_ADMIN, ROLE_USER }
+
+    public User() {
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNotExpired = true;
+    }
 
     public User(String schoolEmail, String username, String password) {
         this.schoolEmail = schoolEmail;

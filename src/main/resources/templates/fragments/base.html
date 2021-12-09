@@ -24,17 +24,20 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/home}">Home</a>
+                    <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
-                    sec:authorize="isAuthenticated()">
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
+                    sec:authorize="isAuthenticated()"
                     <a class="nav-link" th:href="@{/gogetter}">Add GoGetter</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link" th:href="@{/view}">View GoGetter</a>
                 </li>
-
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
+                    sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link" th:href="@{/task}">Add a Task</a>
+                </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/registration}">Sign In</a>
                 </li>
@@ -42,13 +45,17 @@
             <a th:href="@{/logout}" class="btn btn-dark">Logout</a>
         </div>
     </nav>
-
+    <div class="image" th:fragment="image"></div>
     <header class="header" th:fragment="header">
         <div class="container text-center">Study Smart</div>
     </header>
 
 
+
 </body>
+
+
+
     <footer class="footer" th:fragment="footer">
         <div class="container text-center"></div>
         <span class="text-muted">Copyright @2021</span>

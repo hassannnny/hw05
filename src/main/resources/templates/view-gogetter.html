@@ -8,13 +8,16 @@
 </head>
 <body>
     <div th:replace="fragments/base :: navigation"></div>
+    <div th:replace="fragments/base :: header"></div>
+<div class="image">
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <h3 class="text-center col-14">View/Edit</h3>
+            <div id="ViewEdit">
+                 <h1 class="text-center col-14">View/Edit</h1>
+            </div>
         </div>
     </div>
-
     <form class="mt-5" th:action="@{/gogetter/edit/{id}(id=${gogetter.id})}" th:object="${gogetter}" method ="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
@@ -33,7 +36,7 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-10 col-md-3">
                     <input class="form-control" id="lastName" type="text"
-                           th:field="*{lastName}" placeholder="Last Name">
+                           th:field="*{lastName}" placeholder="Your Last Name">
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-10 col-md-3">
@@ -64,6 +67,7 @@
             </div>
         </div>
     </form>
+</div>
 </body>
     <div th:replace="fragments/base :: footer"></div>
     <th:block th:replace="fragments/base :: scripts"></th:block>

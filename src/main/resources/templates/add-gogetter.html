@@ -9,7 +9,7 @@
     <div th:replace="fragments/base :: navigation"></div>
     <div th:replace="fragments/base :: header"></div>
 
-
+<div class="image">
     <form class="mt-5" th:action="@{/gogetter}" th:object="${gogetter}" method ="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
@@ -52,12 +52,13 @@
                     <div class="row justify-content-center">
                         <div class="col-10 col-md-2">
                             <input class="btn btn-dark" type="submit" value="Submit">
-                            <a class="btn-dark" th:href="@{/view}"></a>
+<!--                            <a class="btn-dark" th:href="@{/view}"></a>-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+</div>
 </body>
 </html>

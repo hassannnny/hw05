@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Study Smart</title>
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+    <div th:replace="fragments/base :: header"></div>
+
+
+<div class="image">
+
+
+    <div class="container-fluid mt-5">
+        <div th:each="task: ${tasks}">
+            <div class="row justify-content-center">
+                <div class="col-2 col-md-4"></div>
+                <div class="col-8 md-4 card">
+                    <div class="card-body">
+                        <p class="card-title d-incline" th:text="${task.subject}"></p>
+                        <p class="class-title d-incline" th:text="${task.task}"><p/>
+                        <a th:href="@{/task/view/{id}(id=${task.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
+                        <a th:href="@{/task/delete/{id}(id=${task.id})}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#CancelModal"><i class="fas fa-trash-alt"></i></a>                <!--type="button" data-toggle="modal" data-target="#CancelModal" class="ml-3"-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

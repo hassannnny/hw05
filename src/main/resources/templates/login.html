@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:insert="fragments/base :: headAttributes"></th:block>
     <title>Login</title>
@@ -10,7 +10,14 @@
     <div th:replace="fragments/base :: navigation"></div>
     <div th:replace="fragments/base :: header"></div>
 
-        <br><br>
+    <div class="image">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div id="login">
+                    <h1 class="text-center col-14">Login</h1>
+                </div>
+            </div>
+
         <div class="row justify-content-center">
             <div class="col-8 col-md-3 mb-3" th:if="${param.logout}">
                 <span class="text-danger">You've been logged out</span>
@@ -20,31 +27,33 @@
         <br><br>
         <form th:action="@{/login}" method="post">
             <div class="container-fluid">
-                <div class="col-10 col-md-2">
-                    <input class="form-control" id="username" type="text" th:name="username"
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-3">
+                        <input class="form-control" id="username" type="text" th:name="username"
                            placeholder="Username" required/>
+                        </div>
                 </div>
-            </div>
 
-            <div class="row justify-content-center">
-                <div class="col-10 col-md-2">
-                    <input class="form-control" id="password" type="text" th:name="password"
-                           placeholder="Password" required/>
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-3">
+                        <input class="form-control" id="password" aria-hidden="true" type="password" th:name="password"
+                               placeholder="Password" required/>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row justify-content-center">
-                <div class="col-10 col-md-2">
-                    <input type="submit" class="btn btn-dark" value="login"/>
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-2">
+                        <input type="submit" class="btn btn-dark" value="login"/>
+                    </div>
                 </div>
-            </div>
 
-            <div class="container-fluid">
-                <div class="col-10 col-md-2" th:if="${param.error}">
-                    <span class="text-danger">Invalid username or password</span>
+                <div class="container-fluid">
+                    <div class="col-10 col-md-2" th:if="${param.error}">
+                        <span class="text-danger">Invalid username or password</span>
+                    </div>
                 </div>
             </div>
         </form>
-
+    </div>
 </body>
 </html>

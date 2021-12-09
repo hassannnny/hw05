@@ -1,18 +1,12 @@
 package edu.neiu.hw06.models;
 
-import org.apache.tomcat.jni.Local;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 @Entity
-public class GoGetter {
+public class Registration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -27,50 +21,63 @@ public class GoGetter {
     @Column(unique = true)
     private String schoolEmail;
 
+    @NotBlank(message = "Please create a password")
+    @Column(unique = true)
+    private String RegPassword;
 
     private LocalDateTime created;
     private LocalDateTime modified;
 
 
-    public GoGetter() {
+    public Registration() {
         this.firstName = "";
         this.lastName = "";
         this.schoolEmail = "";
     }
 
-    public GoGetter(String firstName, String lastName, String schoolEmail) {
+    public Registration(String firstName, String lastName, String schoolEmail) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.schoolEmail = schoolEmail;
     }
-
     public long getId() {
-        return this.id;
+        return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getSchoolEmail() {
-        return schoolEmail;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    public String getSchoolEmail() {
+        return schoolEmail;
+    }
+
     public void setSchoolEmail(String schoolEmail) {
         this.schoolEmail = schoolEmail;
+    }
+
+    public String getRegPassword() {
+        return RegPassword;
+    }
+
+    public void setRegPassword(String regPassword) {
+        RegPassword = regPassword;
     }
 
     public LocalDateTime getCreated() {
@@ -89,7 +96,6 @@ public class GoGetter {
         this.modified = modified;
     }
 
-
     @PrePersist
     public void onCreate() {
         this.setCreated(LocalDateTime.now());
@@ -104,5 +110,4 @@ public class GoGetter {
     public String toString() {
         return this.firstName + " " + this.lastName;
     }
-
 }

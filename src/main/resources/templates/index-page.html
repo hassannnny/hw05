@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th= "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:method="http://www.w3.org/1999/xhtml">
 <head>
     <th:block th:replace="fragments/base :: headAttributes"></th:block>
+    <!--<link th:rel="stylesheet" th:href="@{/css/base.css}">-->
     <title>StudySmart</title>
 </head>
 <body>
     <div th:insert="fragments/base :: navigation"></div>
-    <div th:replace="fragments/base :: header"></div>
+        <div th:replace="fragments/base :: header"></div>
+
+    <div class="image">
+        <div class="container">
+            <div class="row justify-content-center">
+                <form class="mt-5" th:action="@{/registration}" th:object="${registration}" method="post">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Don't have an account? Sign In!</h5>
+                                    <input class="btn btn-dark" type="submit" value="Submit" text-align="center">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form class="mt-5" th:action="@{/login}" th:object="${user}" method="post">
+                    <div class="col-lg-6 mb-4">                                                                                       <!--<div class="col-lg-6 mb-4">-->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Have an account? Log In!</h5>
+                                    <input class="btn btn-dark" type="submit" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
     <div th:replace="fragments/base :: footer"></div>

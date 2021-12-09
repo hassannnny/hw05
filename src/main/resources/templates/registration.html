@@ -11,35 +11,42 @@
 <div th:replace="fragments/base :: header"></div>
 
 
-<br><br>
-<form th:action="@{/registration}" method="post">
-    <div class="container-fluid">
-        <div class="col-10 col-md-2">
-            <input class="form-control" id="firstName" type="text" th:name="firstName"
-                   placeholder="First Name" required/>
-        </div>
-    </div>
 
-    <div class="row justify-content-center">
-        <div class="col-10 col-md-2">
-            <input class="form-control" id="LastName" type="text" th:name="LastName"
-                   placeholder="LastName" required/>
-        </div>
-    </div>
+<div class="image">
+    <form class="mt-5" th:action="@{/registration}" th:object="${registration}"  method="post">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-2">
+                <input class="form-control" id="firstName" type="text" th:name="firstName"
+                       placeholder="First Name" required/>
+            </div>
 
-    <div class="row justify-content-center">
-        <div class="col-10 col-md-2">
-            <input class="form-control" id="schoolEmail" type="text" th:name="SchoolEmail"
-                   placeholder="School Email" required/>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-10 col-md-2">
-            <input type="submit" class="btn btn-dark" value="Sign In"/>
-        </div>
-    </div>
 
-</form>
+            <div class="row justify-content-center">
+            <div class="col-10 col-md-2">
+                <input class="form-control" id="LastName" type="text" th:name="LastName"
+                       placeholder="LastName" required/>
+            </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-2">
+                <input class="form-control" id="schoolEmail" type="text" th:name="SchoolEmail"
+                       placeholder="School Email" required/>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-2">
+                <input type="submit" class="btn btn-dark" value="Sign In"/>
+            <!--        <a class="btn-dark" th:href="@{/view}"></a>-->
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
 
 </body>
 </html>

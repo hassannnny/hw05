@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <link th:rel="stylesheet" th:href="@{/css/base.css}">
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+<div th:replace="fragments/base :: header"></div>
+
+<div class="image">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div id="EditTask">
+                <h1 class="text-center col-14">Add a Task</h1>
+            </div>
+        </div>
+    </div>
+
+    <form class="mt-5" th:action="@{/task}" th:object="${task}" method ="post">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-10 col-md-3">
+                    <input class="form-control" id="subject" type="text"
+                           th:field="*{subject}" placeholder="Add a Subject">
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-10 col-md-3">
+                    <input class="form-control" id="task" type="text"
+                           th:field="*{task}" placeholder="Add a Task">
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-md-2">
+                            <input class="btn btn-dark" type="submit" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+</div>
+</body>
+</html>

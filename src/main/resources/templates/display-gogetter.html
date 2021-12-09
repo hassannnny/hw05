@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="https://www.thymeleaf.org">
+      xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <th:block th:insert="fragments/base :: headAttributes"></th:block>
     <title>Study Smart</title>
 </head>
 <body>
     <div th:replace="fragments/base :: navigation"></div>
-    <div th:replace="fragments/base :: header"></div>
-    <header class="Welcome">
-        <div class="container text-center">Welcome</div>
-    </header>
+<!--    <div th:replace="fragments/base :: header"></div>-->
 
-    <div class="modal" id="CancelModal">
-        <div class="modal-dialog">
+    <header class="Welcome">
+        <div>Welcome</div>
+    </header>
+    <div class="image">
+    <div class="modal" id="CancelModal" role="dialog">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title"></h2>
@@ -23,32 +24,35 @@
                 <p>Are you sure want to delete?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I'm sure</button>
+                <a type="button" class="btn btn-primary" data-bs-dismiss="modal">I'm sure</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Return</button>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid mt-5">
-        <div th:each="gogetter: ${gogetter}">
+
+
+        <div class="container-fluid mt-5">
+        <div th:each="gogetter: ${gogetters}">
             <div class="row justify-content-center">
                 <div class="col-2 col-md-4"></div>
                 <div class="col-8 md-4 card">
                     <div class="card-body">
-                        <h1 class="card-title d-incline" th:text="${gogetter.firstName} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1><br>
+                        <p class="card-title d-incline" th:text="${gogetter.firstName}"></p>
+                        <p class="class-title d-incline" th:text="${gogetter.lastName}"><p/>
+                        <p class="class-title d-incline" th:text="${gogetter.schoolEmail}"></p>
                         <a th:href="@{/gogetter/view/{id}(id=${gogetter.id})}" class="ml-3"><i class="fas fa-eye"></i></a>
-                        <a th:href="@{/gogetter/delete/{id}(id=${gogetter.id})}" data-toggle="modal" data-target="#CancelModal" class="ml-3"><i class="fas fa-trash-alt" th:href="@{/view}"></i></a>
+                        <a th:href="@{/gogetter/delete/{id}(id=${gogetter.id})}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#CancelModal"><i class="fas fa-trash-alt"></i></a>                <!--type="button" data-toggle="modal" data-target="#CancelModal" class="ml-3"-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 </body>
 
 <div th:replace="fragments/base :: footer"></div>
 <th:block th:replace="fragments/base :: scripts"></th:block>
-
 
 
 
@@ -63,7 +67,9 @@ th:text="${gogetter.firstName} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.s
 </html>
 
 
-
+<!--
+<h1 class="card-title d-incline" th:text="${gogetter.firstName} + ' ' + ${gogetter.lastName} + ' ' + ${gogetter.schoolEmail}"></h1>
+-->
 
 
 

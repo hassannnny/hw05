@@ -23,7 +23,9 @@ public class ViewGoGetterController {
     @GetMapping
     public String showGoGetterName(Model model) {
         List<GoGetter> gogetters = (List<GoGetter>) this.GoGetterRepo.findAll();
-        model.addAttribute("gogetter", gogetters);
+        model.addAttribute("gogetters", gogetters);
         return "display-gogetter";
     }
+
+
 }

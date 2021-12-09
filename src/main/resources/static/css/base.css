@@ -4,20 +4,52 @@
 }
 
 .Welcome {
+    position: absolute;
+    width: 100%;
     text-align: center;
-    font-size: xxx-large;
-    margin-top: 150px;
+    color: white;
+    font-width: bold;
+    font-size: 60px;
 }
 .footer {
     position: fixed;
+    font-weight: bold;
     bottom: 0;
     width: 100%;
-    color: black;
+    color: white;
     text-align: center;
 }
 .header {
     position: absolute;
+    font-weight: bold;
     width: 100%;
     text-align: center;
-    font-size: xx-large;
+    font-size: 60px;
+    color: white;
+}
+.image {
+    background-image: url(../images/Bookshelf.jfif);
+    padding: 400px 100px;
+    background-position: center;
+}
+
+#ViewEdit {
+    margin-top: 5px;
+    text-align: center;
+    position: absolute;
+    color: white;
+}
+
+#login {
+    margin-top: 5px;
+    text-align: center;
+    position: absolute;
+    color: white;
+}
+
+#EditTask {
+    margin-top: 5px;
+    text-align: center;
+    position: absolute;
+    color: white;
 }
